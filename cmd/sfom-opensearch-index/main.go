@@ -10,28 +10,27 @@ import (
 	"log"
 
 	"github.com/sfomuseum/go-flags/flagset"
-	"github.com/sfomuseum/go-flags/lookup"
+	// "github.com/sfomuseum/go-flags/lookup"
 	"github.com/sfomuseum/go-sfomuseum-opensearch/document"
-	"github.com/whosonfirst/go-whosonfirst-iterwriter/application/iterwriter"
+	"github.com/whosonfirst/go-whosonfirst-iterwriter"
+	iterwriter_app "github.com/whosonfirst/go-whosonfirst-iterwriter/application/iterwriter"
 	os_writer "github.com/whosonfirst/go-whosonfirst-opensearch/writer"
 	"github.com/whosonfirst/go-writer/v3"
 )
 
 func main() {
 
-	fs := iterwriter.DefaultFlagSet()
+     var sfom_writer_uri string
+
+	fs := iterwriter_app.DefaultFlagSet()
+
+	fs.StringVar(&sfom_writer_uri, "sfomuseum-writer-uri", "", "...")
 	flagset.Parse(fs)
 
 	ctx := context.Background()
 	logger := log.Default()
 
-	writer_uri, err := lookup.StringVar(fs, "writer-uri")
-
-	if err != nil {
-		logger.Fatalf("Failed to derive writer-uri flag, %v", err)
-	}
-
-	wr, err := writer.NewWriter(ctx, writer_uri)
+	wr, err := writer.NewWriter(ctx, sfom_writer_uri)
 
 	if err != nil {
 		log.Fatalf("Failed to create new writer, %v", err)
@@ -47,13 +46,14 @@ func main() {
 		log.Fatalf("Failed to append SFOM prepare func, %v", err)
 	}
 
-	run_opts := &iterwriter.RunOptions{
+	run_opts := &iterwriter_app.RunOptions{
 		Logger:  logger,
 		FlagSet: fs,
 		Writer:  wr,
+		CallbackFunc: iterwriter.DefaultIterwriterCallback,
 	}
 
-	err = iterwriter.RunWithOptions(ctx, run_opts)
+	err = iterwriter_app.RunWithOptions(ctx, run_opts)
 
 	if err != nil {
 		log.Fatalf("Failed to run iterwriter, %v", err)

@@ -22,7 +22,7 @@ github.com/ProtonMail/go-crypto/openpgp/internal/ecc
 github.com/ProtonMail/go-crypto/openpgp/internal/encoding
 github.com/ProtonMail/go-crypto/openpgp/packet
 github.com/ProtonMail/go-crypto/openpgp/s2k
-# github.com/aaronland/go-aws-auth v1.1.2
+# github.com/aaronland/go-aws-auth v1.1.3
 ## explicit; go 1.18
 github.com/aaronland/go-aws-auth
 # github.com/aaronland/go-aws-session v0.2.1
@@ -108,10 +108,10 @@ github.com/aws/aws-sdk-go-v2/internal/shareddefaults
 github.com/aws/aws-sdk-go-v2/internal/strings
 github.com/aws/aws-sdk-go-v2/internal/sync/singleflight
 github.com/aws/aws-sdk-go-v2/internal/timeconv
-# github.com/aws/aws-sdk-go-v2/config v1.18.40
+# github.com/aws/aws-sdk-go-v2/config v1.18.41
 ## explicit; go 1.15
 github.com/aws/aws-sdk-go-v2/config
-# github.com/aws/aws-sdk-go-v2/credentials v1.13.38
+# github.com/aws/aws-sdk-go-v2/credentials v1.13.39
 ## explicit; go 1.15
 github.com/aws/aws-sdk-go-v2/credentials
 github.com/aws/aws-sdk-go-v2/credentials/ec2rolecreds
@@ -151,7 +151,7 @@ github.com/aws/aws-sdk-go-v2/service/ssm/types
 github.com/aws/aws-sdk-go-v2/service/sso
 github.com/aws/aws-sdk-go-v2/service/sso/internal/endpoints
 github.com/aws/aws-sdk-go-v2/service/sso/types
-# github.com/aws/aws-sdk-go-v2/service/ssooidc v1.16.0
+# github.com/aws/aws-sdk-go-v2/service/ssooidc v1.17.0
 ## explicit; go 1.15
 github.com/aws/aws-sdk-go-v2/service/ssooidc
 github.com/aws/aws-sdk-go-v2/service/ssooidc/internal/endpoints
@@ -344,7 +344,7 @@ github.com/paulmach/orb
 github.com/pjbgf/sha1cd
 github.com/pjbgf/sha1cd/cgo
 github.com/pjbgf/sha1cd/ubc
-# github.com/sergi/go-diff v1.2.0
+# github.com/sergi/go-diff v1.1.0
 ## explicit; go 1.12
 github.com/sergi/go-diff/diffmatchpatch
 # github.com/sfomuseum/go-edtf v1.1.1
@@ -362,7 +362,6 @@ github.com/sfomuseum/go-edtf/unix
 # github.com/sfomuseum/go-flags v0.10.0
 ## explicit; go 1.16
 github.com/sfomuseum/go-flags/flagset
-github.com/sfomuseum/go-flags/lookup
 github.com/sfomuseum/go-flags/multi
 # github.com/sfomuseum/go-sfomuseum-instagram v0.2.8
 ## explicit; go 1.18
@@ -399,7 +398,7 @@ github.com/whosonfirst/go-ioutil
 # github.com/whosonfirst/go-whosonfirst-crawl v0.2.2
 ## explicit; go 1.18
 github.com/whosonfirst/go-whosonfirst-crawl
-# github.com/whosonfirst/go-whosonfirst-elasticsearch v0.10.2
+# github.com/whosonfirst/go-whosonfirst-elasticsearch v0.10.3
 ## explicit; go 1.18
 github.com/whosonfirst/go-whosonfirst-elasticsearch/document
 # github.com/whosonfirst/go-whosonfirst-feature v0.0.26
@@ -417,11 +416,11 @@ github.com/whosonfirst/go-whosonfirst-iterate-git/v2
 github.com/whosonfirst/go-whosonfirst-iterate/v2/emitter
 github.com/whosonfirst/go-whosonfirst-iterate/v2/filters
 github.com/whosonfirst/go-whosonfirst-iterate/v2/iterator
-# github.com/whosonfirst/go-whosonfirst-iterwriter v0.0.13
+# github.com/whosonfirst/go-whosonfirst-iterwriter v0.0.14
 ## explicit; go 1.18
 github.com/whosonfirst/go-whosonfirst-iterwriter
 github.com/whosonfirst/go-whosonfirst-iterwriter/application/iterwriter
-# github.com/whosonfirst/go-whosonfirst-opensearch v0.0.1
+# github.com/whosonfirst/go-whosonfirst-opensearch v0.0.2
 ## explicit; go 1.21
 github.com/whosonfirst/go-whosonfirst-opensearch/client
 github.com/whosonfirst/go-whosonfirst-opensearch/writer
