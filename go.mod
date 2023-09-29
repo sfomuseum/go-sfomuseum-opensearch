@@ -17,7 +17,7 @@ require (
 	github.com/whosonfirst/go-whosonfirst-elasticsearch v0.10.3
 	github.com/whosonfirst/go-whosonfirst-iterate-git/v2 v2.1.3
 	github.com/whosonfirst/go-whosonfirst-iterwriter v0.0.15
-	github.com/whosonfirst/go-whosonfirst-opensearch v0.0.4
+	github.com/whosonfirst/go-whosonfirst-opensearch v0.0.5
 	github.com/whosonfirst/go-writer/v3 v3.1.0
 )
 
