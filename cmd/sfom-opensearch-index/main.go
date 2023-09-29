@@ -36,6 +36,12 @@ func main() {
 		log.Fatalf("Failed to create new writer, %v", err)
 	}
 
+	err = wr.SetLogger(ctx, logger)
+
+	if err != nil {
+		log.Fatalf("Failed to assign logger to writer, %v", err)
+	}
+		
 	sfom_prepare_func := document.SFOMuseumPrepareDocumentFunc()
 
 	// To do: type/interface checking here...
