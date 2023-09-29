@@ -12,12 +12,12 @@ replace github.com/opensearch-project/opensearch-go/v2 => github.com/opensearch-
 require (
 	github.com/sfomuseum/go-flags v0.10.0
 	github.com/sfomuseum/go-sfomuseum-instagram v0.2.8
-	github.com/tidwall/gjson v1.16.0
+	github.com/tidwall/gjson v1.17.0
 	github.com/tidwall/sjson v1.2.5
 	github.com/whosonfirst/go-whosonfirst-elasticsearch v0.10.3
 	github.com/whosonfirst/go-whosonfirst-iterate-git/v2 v2.1.3
-	github.com/whosonfirst/go-whosonfirst-iterwriter v0.0.14
-	github.com/whosonfirst/go-whosonfirst-opensearch v0.0.2
+	github.com/whosonfirst/go-whosonfirst-iterwriter v0.0.15
+	github.com/whosonfirst/go-whosonfirst-opensearch v0.0.3
 	github.com/whosonfirst/go-writer/v3 v3.1.0
 )
 
@@ -67,7 +67,7 @@ require (
 	github.com/natefinch/atomic v1.0.1 // indirect
 	github.com/neurosnap/sentences v1.1.2 // indirect
 	github.com/nfnt/resize v0.0.0-20180221191011-83c6a9932646 // indirect
-	github.com/opensearch-project/opensearch-go/v2 v2.3.0 // indirect
+	github.com/opensearch-project/opensearch-go/v2 v2.0.0-00010101000000-000000000000 // indirect
 	github.com/paulmach/orb v0.8.0 // indirect
 	github.com/pjbgf/sha1cd v0.2.3 // indirect
 	github.com/sergi/go-diff v1.1.0 // indirect
