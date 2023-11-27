@@ -10,6 +10,11 @@ import (
 	es_document "github.com/whosonfirst/go-whosonfirst-elasticsearch/document"
 )
 
+// SFOMuseumPrepareEmbeddingsDocumentFunc returns a `es_document.PrepareDocumentFunc` function
+// that will yield a document for indexing using OpenSeach-style "semantic search" (embeddings).
+// Note: As of this writing there is a hardcoded list of fields to read and a single hardcoded field
+// in to which those data are stored. This is not ideal and it would be better to have something with
+// sensible defaults that could be overridden. That does not exist today.
 func SFOMuseumPrepareEmbeddingsDocumentFunc() es_document.PrepareDocumentFunc {
 
 	sfom_f := func(ctx context.Context, body []byte) ([]byte, error) {
@@ -36,7 +41,7 @@ func SFOMuseumPrepareEmbeddingsDocumentFunc() es_document.PrepareDocumentFunc {
 
 		str_body := strings.Join(to_index, " ")
 
-		new_body, err := sjson.SetBytes(new_body, "sfomuseum:description", []byte(str_body))
+		new_body, err := sjson.SetBytes(new_body, "search", []byte(str_body))
 
 		if err != nil {
 			return nil, fmt.Errorf("Failed to assign sfomuseum:description, %w", err)
