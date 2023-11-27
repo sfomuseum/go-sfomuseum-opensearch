@@ -10,8 +10,8 @@ import (
 	"log"
 
 	"github.com/sfomuseum/go-flags/flagset"
-	// "github.com/sfomuseum/go-flags/lookup"
 	"github.com/sfomuseum/go-sfomuseum-opensearch/document"
+	es_document "github.com/whosonfirst/go-whosonfirst-elasticsearch/document"
 	"github.com/whosonfirst/go-whosonfirst-iterwriter"
 	iterwriter_app "github.com/whosonfirst/go-whosonfirst-iterwriter/application/iterwriter"
 	os_writer "github.com/whosonfirst/go-whosonfirst-opensearch/writer"
@@ -20,11 +20,14 @@ import (
 
 func main() {
 
-     var sfom_writer_uri string
+	var sfom_writer_uri string
+	var index_embeddings bool
 
 	fs := iterwriter_app.DefaultFlagSet()
 
 	fs.StringVar(&sfom_writer_uri, "sfomuseum-writer-uri", "", "...")
+	fs.BoolVar(&index_embeddings, "index-embeddings", false, "...")
+
 	flagset.Parse(fs)
 
 	ctx := context.Background()
@@ -41,8 +44,16 @@ func main() {
 	if err != nil {
 		log.Fatalf("Failed to assign logger to writer, %v", err)
 	}
-		
-	sfom_prepare_func := document.SFOMuseumPrepareDocumentFunc()
+
+	// To do: Some day we may have multiple prepare document funcs
+
+	var sfom_prepare_func es_document.PrepareDocumentFunc
+
+	if index_embeddings {
+		sfom_prepare_func = document.SFOMuseumPrepareEmbeddingsDocumentFunc()
+	} else {
+		sfom_prepare_func = document.SFOMuseumPrepareDocumentFunc()
+	}
 
 	// To do: type/interface checking here...
 
@@ -53,9 +64,9 @@ func main() {
 	}
 
 	run_opts := &iterwriter_app.RunOptions{
-		Logger:  logger,
-		FlagSet: fs,
-		Writer:  wr,
+		Logger:       logger,
+		FlagSet:      fs,
+		Writer:       wr,
 		CallbackFunc: iterwriter.DefaultIterwriterCallback,
 	}
 
