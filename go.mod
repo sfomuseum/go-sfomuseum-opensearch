@@ -39,7 +39,7 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/sts v1.22.0 // indirect
 	github.com/aws/smithy-go v1.14.2 // indirect
 	github.com/cenkalti/backoff/v4 v4.2.1 // indirect
-	github.com/cloudflare/circl v1.1.0 // indirect
+	github.com/cloudflare/circl v1.3.3 // indirect
 	github.com/corona10/goimagehash v1.1.0 // indirect
 	github.com/dominikbraun/graph v0.16.1 // indirect
 	github.com/emirpasic/gods v1.18.1 // indirect
