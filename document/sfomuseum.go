@@ -18,6 +18,9 @@ func SFOMuseumPrepareDocumentFunc() es_document.PrepareDocumentFunc {
 
 		var err error
 
+		id_rsp := gjson.GetBytes(body, "wof:id")
+		str_id := id_rsp.String()
+
 		im_rsp := gjson.GetBytes(body, "millsfield:images")
 
 		if im_rsp.Exists() {
@@ -71,6 +74,29 @@ func SFOMuseumPrepareDocumentFunc() es_document.PrepareDocumentFunc {
 
 			}
 
+		}
+
+		sfom_dates := []string{
+			"sfomuseum:date_start",
+			"sfomuseum:date_end",
+		}
+
+		for _, path := range sfom_dates {
+
+			dt_rsp := gjson.GetBytes(body, path)
+
+			if !dt_rsp.Exists() {
+				continue
+			}
+
+			if dt_rsp.String() == "" {
+
+				body, err = sjson.DeleteBytes(body, path)
+
+				if err != nil {
+					return nil, fmt.Errorf("Failed to delete '%s' for %s", path, str_id)
+				}
+			}
 		}
 
 		return body, nil
