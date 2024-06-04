@@ -8,12 +8,13 @@ import (
 import (
 	"context"
 	"log"
+	"log/slog"
 
 	"github.com/sfomuseum/go-flags/flagset"
 	"github.com/sfomuseum/go-sfomuseum-opensearch/document"
 	es_document "github.com/whosonfirst/go-whosonfirst-elasticsearch/document"
-	"github.com/whosonfirst/go-whosonfirst-iterwriter"
-	iterwriter_app "github.com/whosonfirst/go-whosonfirst-iterwriter/application/iterwriter"
+	// "github.com/whosonfirst/go-whosonfirst-iterwriter"
+	iterwriter_app "github.com/whosonfirst/go-whosonfirst-iterwriter/app/iterwriter"
 	os_writer "github.com/whosonfirst/go-whosonfirst-opensearch/writer"
 	"github.com/whosonfirst/go-writer/v3"
 )
@@ -63,14 +64,15 @@ func main() {
 		log.Fatalf("Failed to append SFOM prepare func, %v", err)
 	}
 
-	run_opts := &iterwriter_app.RunOptions{
-		Logger:       logger,
-		FlagSet:      fs,
-		Writer:       wr,
-		CallbackFunc: iterwriter.DefaultIterwriterCallback,
+	run_opts, err := iterwriter_app.DefaultOptionsFromFlagSet(fs, true)
+
+	if err != nil {
+		log.Fatalf("Failed to create run options, %v", err)
 	}
 
-	err = iterwriter_app.RunWithOptions(ctx, run_opts)
+	run_opts.Writer = wr
+
+	err = iterwriter_app.RunWithOptions(ctx, run_opts, slog.Default())
 
 	if err != nil {
 		log.Fatalf("Failed to run iterwriter, %v", err)
