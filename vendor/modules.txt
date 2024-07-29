@@ -391,7 +391,7 @@ github.com/sfomuseum/runtimevar
 # github.com/skeema/knownhosts v1.2.2
 ## explicit; go 1.17
 github.com/skeema/knownhosts
-# github.com/tidwall/gjson v1.17.1
+# github.com/tidwall/gjson v1.17.2
 ## explicit; go 1.12
 github.com/tidwall/gjson
 # github.com/tidwall/match v1.1.1

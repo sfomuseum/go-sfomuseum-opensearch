@@ -5,7 +5,7 @@ go 1.22.1
 require (
 	github.com/sfomuseum/go-flags v0.10.0
 	github.com/sfomuseum/go-sfomuseum-instagram v0.2.8
-	github.com/tidwall/gjson v1.17.1
+	github.com/tidwall/gjson v1.17.2
 	github.com/tidwall/sjson v1.2.5
 	github.com/whosonfirst/go-whosonfirst-elasticsearch v0.11.0
 	github.com/whosonfirst/go-whosonfirst-iterate-git/v2 v2.1.6
