@@ -11,6 +11,7 @@ import (
 	"log/slog"
 
 	"github.com/sfomuseum/go-flags/flagset"
+	"github.com/sfomuseum/go-flags/lookup"	
 	"github.com/sfomuseum/go-sfomuseum-opensearch/document"
 	es_document "github.com/whosonfirst/go-whosonfirst-elasticsearch/document"
 	iterwriter_app "github.com/whosonfirst/go-whosonfirst-iterwriter/app/iterwriter"
@@ -23,17 +24,20 @@ func main() {
 	var sfom_writer_uri string
 	var index_embeddings bool
 
-	var verbose bool
 
 	fs := iterwriter_app.DefaultFlagSet()
 
 	fs.StringVar(&sfom_writer_uri, "sfomuseum-writer-uri", "", "...")
 	fs.BoolVar(&index_embeddings, "index-embeddings", false, "...")
 
-	fs.BoolVar(&verbose, "verbose", false, "...")
-
 	flagset.Parse(fs)
 
+	verbose, err := lookup.BoolVar(fs, "verbose")
+
+	if err != nil {
+		log.Fatal(err)
+	}
+	
 	logger := slog.Default()
 	log_level := slog.LevelInfo
 
