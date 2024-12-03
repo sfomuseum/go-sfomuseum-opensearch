@@ -44,7 +44,7 @@ func SFOMuseumPrepareDocumentFunc() es_document.PrepareDocumentFunc {
 
 			taken_rsp := gjson.GetBytes(body, "instagram:post.taken_at")
 
-			t, err := time.Parse(media.TIME_FORMAT, taken_rsp.String())
+			t, err := media.ParseTime(taken_rsp.String())
 
 			if err != nil {
 				return nil, fmt.Errorf("Failed to parse '%s', %w", taken_rsp.String(), err)
