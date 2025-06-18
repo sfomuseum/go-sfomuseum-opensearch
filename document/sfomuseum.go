@@ -3,6 +3,7 @@ package document
 import (
 	"context"
 	"fmt"
+	"slices"
 	"strings"
 	"time"
 
@@ -31,6 +32,38 @@ func SFOMuseumPrepareDocumentFunc() es_document.PrepareDocumentFunc {
 
 			if err != nil {
 				return nil, fmt.Errorf("Failed to assign millsfield:count_images, %w", err)
+			}
+		}
+
+		// Color distance-sorting stuff
+		// Move all the hex colors from the `millsfield:images_colors_refs.marekm4` property
+		// in to a separate `hexcolors` property. Could we do this in the schema with a "copy_to"
+		// directive? Probably and in the future we might but that will require a full re-index
+		// so for now there is this...
+
+		marekm4_rsp := gjson.GetBytes(body, "millsfield:images_colors_refs.marekm4")
+
+		if marekm4_rsp.Exists() {
+
+			hexcolors := make([]string, 0)
+
+			for _, details := range marekm4_rsp.Array() {
+
+				hex_rsp := details.Get("hex")
+				hex := hex_rsp.String()
+
+				if hex != "" && !slices.Contains(hexcolors, hex) {
+					hexcolors = append(hexcolors, hex)
+				}
+			}
+
+			if len(hexcolors) > 0 {
+
+				body, err = sjson.SetBytes(body, "hexcolors", hexcolors)
+
+				if err != nil {
+					return nil, err
+				}
 			}
 		}
 
