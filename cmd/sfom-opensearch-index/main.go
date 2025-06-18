@@ -15,7 +15,7 @@ import (
 	"github.com/sfomuseum/go-sfomuseum-opensearch/document"
 	es_document "github.com/whosonfirst/go-whosonfirst-elasticsearch/document"
 	iterwriter_app "github.com/whosonfirst/go-whosonfirst-iterwriter/app/iterwriter"
-	os_writer "github.com/whosonfirst/go-whosonfirst-opensearch/writer"
+	os_writer "github.com/whosonfirst/go-whosonfirst-opensearch/v4/writer"
 	"github.com/whosonfirst/go-writer/v3"
 )
 
