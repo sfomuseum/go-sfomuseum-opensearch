@@ -2,14 +2,12 @@
 package main
 
 import (
-	_ "github.com/whosonfirst/go-whosonfirst-iterate-git/v2"
-)
-
-import (
 	"context"
 	"log"
 	"log/slog"
 
+	_ "github.com/whosonfirst/go-whosonfirst-iterate-git/v3"
+	
 	"github.com/sfomuseum/go-flags/flagset"
 	"github.com/sfomuseum/go-flags/lookup"	
 	"github.com/sfomuseum/go-sfomuseum-opensearch/document"

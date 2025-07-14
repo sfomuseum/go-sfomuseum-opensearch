@@ -10,7 +10,7 @@ require (
 	github.com/tidwall/gjson v1.18.0
 	github.com/tidwall/sjson v1.2.5
 	github.com/whosonfirst/go-whosonfirst-elasticsearch v0.11.0
-	github.com/whosonfirst/go-whosonfirst-iterate-git/v2 v2.2.0
+	github.com/whosonfirst/go-whosonfirst-iterate-git/v3 v3.0.1
 	github.com/whosonfirst/go-whosonfirst-iterwriter v0.2.3
 	github.com/whosonfirst/go-whosonfirst-opensearch/v4 v4.2.6
 	github.com/whosonfirst/go-writer/v3 v3.1.1
@@ -84,6 +84,7 @@ require (
 	github.com/whosonfirst/go-whosonfirst-feature v0.0.29 // indirect
 	github.com/whosonfirst/go-whosonfirst-flags v0.5.2 // indirect
 	github.com/whosonfirst/go-whosonfirst-iterate/v2 v2.6.0 // indirect
+	github.com/whosonfirst/go-whosonfirst-iterate/v3 v3.0.0 // indirect
 	github.com/whosonfirst/go-whosonfirst-placetypes v0.7.3 // indirect
 	github.com/whosonfirst/go-whosonfirst-sources v0.1.0 // indirect
 	github.com/whosonfirst/go-whosonfirst-spelunker v0.0.6 // indirect
